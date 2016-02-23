@@ -1,0 +1,188 @@
+<html ng-app="blacktie">
+    <head>
+        <title>Login</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-cosmo.min.css" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" />
+        <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="javascripts/angular.min.js"></script>
+        <style type="text/css">
+        body {
+        background-color: white;
+        }
+        </style>
+        <script type="text/javascript">
+        var app = new angular.module('blacktie', []);
+        app.controller('ProfileCtrl', function () {
+        this.username = 'Bharath';
+        });
+        app.controller('NavCtrl', function () {
+        this.username = 'Bharath';
+        
+        this.unreadMessages = [
+        {
+        "id":1,
+        "subject":"Shortlisted for mindtree",
+        "from":"Mindtree HR",
+        "date":"20-02-2016",
+        "body":"Congratulations for being shortlisted for a personal interview for mindtree"
+        },{
+        "id":2,
+        "subject":"Shortlisted for Skava",
+        "from":"Skava HR",
+        "date":"20-02-2016",
+        "body":"Congratulations for being shortlisted for a personal interview for Skava"
+        },{
+        "id":3,
+        "subject":"Password reset request",
+        "from":"Admin",
+        "date":"18-02-2016",
+        "body":"Your password reset was successful"
+        }
+        ];
+        this.unreadNotifications = [
+        {
+        "id":1,
+        "title":"Job invitation from Skava",
+        "date":"20-02-2016",
+        "body":"You have been invited to take a test for skava"
+        },{
+        "id":2,
+        "title":"Job invitation from TCS",
+        "date":"20-02-2016",
+        "body":"You have been invited to take a test for TCS"
+        },
+        {
+        "id":3,
+        "title":"Exam reminder",
+        "date":"20-02-2016 2 P.M",
+        "body":"The assessment for Infosys is underway right now"
+        },
+        {
+        "id":4,
+        "title":"Job invitation from Mindtree",
+        "date":"20-02-2016",
+        "body":"You have been invited to take a test for Mindtree"
+        },
+        {
+        "id":6,
+        "title":"Job invitation from Moris",
+        "date":"20-02-2016",
+        "body":"You have been invited to take a test for Mindtree"
+        }
+        ];
+        var incomingNotification = {"id":4,
+        "title":"Job invitation from Infosys",
+        "body":"You have been invited to take a test for Infosys"};
+        this.unreadNotifications.push(incomingNotification);
+        });
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" ng-controller="NavCtrl as navctrl">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="pull-left" ><img src="/favicon2.jpg" height="50px"></a>
+                    <a class="navbar-brand" href="#" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#" lass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <!-- {{navctrl.username}} --> <%= user.local.email %>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Edit Profile <i class="glyphicon glyphicon-pencil"></i></a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a  role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
+                                <span class="glyphicon glyphicon-bell"></span><span class="badge badge-notify">{{ navctrl.unreadNotifications.length }}</span><span class="visible-xs-inline">Notifications</span>
+                            </a>
+                            <ul class="dropdown-menu notifications" role="menu">
+                                <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-bell"></span> Notifications</h4>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper">
+                                <a class="content" href="#notifications/{{notification.id}}" ng-repeat="notification in navctrl.unreadNotifications">
+                                    <div class="notification-item">
+                                        <h4 class="item-title">{{notification.id}}.){{notification.title}} at {{notification.date}}</h4>
+                                        <p class="item-info">{{notification.body}}</p>
+                                    </div>
+                                </a>
+                                <hr />
+                                
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notification-footer text-center"><a href="#/notifications/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a  role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
+                            <span class="glyphicon glyphicon-envelope"></span><span class="badge badge-notify">{{ navctrl.unreadMessages.length }}</span><span class="visible-xs-inline">Messages</span></a>
+                            <ul class="dropdown-menu notifications" role="menu">
+                                <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-envelope"></span> Messages</h4>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper">
+                                <a class="content" href="#messages/{{message.id}}" ng-repeat="message in navctrl.unreadMessages">
+                                    <div class="notification-item">
+                                        <h4 class="item-title"><i class="glyphicon glyphicon-chevron-right white-black"></i> {{message.from}} - {{message.subject}} at {{message.date}} </h4>
+                                        <p class="item-info">{{message.body}}</p>
+                                        <div class="divider"></div>
+                                    </div>
+                                </a>
+                                
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notification-footer text-center"><a href="#messages/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                        </ul>
+                    </li>
+                    <li><a href="#" data-toggle="modal" data-target=".logoutModal"><span class="glyphicon glyphicon-log-out"></span>&nbsp; <span class="visible-xs-inline">Logout</span></a>
+                    
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</nav>
+<div class="container" ng-controller="ProfileCtrl as profile">
+    <ng-view>
+</ng-view>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Hello, <%= user.fname %> !</h1>
+            <p>This is your dashboard</p>
+            <p>
+                <button class="btn btn-default btn-lg">Help</button>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Modals -->
+<!-- Logout modal -->
+<div class="modal logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header"><h4><strong>Logout</strong> <i class="fa fa-lock"></i></h4></div>
+            <div class="modal-body"><i class="fa fa-question-circle"></i> <span class="glyphicon glyphicon-question-sign"></span> Are you sure you want to logout?</div>
+            <div class="modal-footer"><a href="/logout" class="btn btn-block black-white">Logout <span class="glyphicon glyphicon-log-out"></span></a></div>
+        </div>
+    </div>
+</div>
+<!-- End Logout modal -->
+</body>
+</html>

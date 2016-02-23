@@ -1,0 +1,8 @@
+{
+  "Resources": {
+    "Notification-dropdown": "http://www.codeply.com/go/bp/tB4UXeU5pi",
+    "Mongoose-operations":"https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications",
+    "JWT" : "https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens",
+    "Passport" : "https://scotch.io/courses/easy-node-authentication"
+  }
+}
