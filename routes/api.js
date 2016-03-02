@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../app/models/user');
+var User = require('../models/user');
 
 var newUser = new User({
   fname: 'Bharath',

@@ -1,0 +1,25 @@
+<table class="table">
+  <tr>
+    <td><h3>Details for {{user.username}}</h3></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{user.local.email}}</td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>{{user.phone}}</td>
+  </tr>
+  <tr data-ng-view="user.fname">
+    <td>First name</td>
+    <td>{{user.fname}}</td>
+  </tr>
+  <tr data-ng-view="user.lname">
+    <td>Last Name</td>
+    <td>{{user.lname}}</td>
+  </tr>
+</table>
+<div>
+  <a class="btn btn-default btn-block" ui-sref="editUser({id:user.username})"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+</div>

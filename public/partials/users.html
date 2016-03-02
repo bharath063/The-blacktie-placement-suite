@@ -1,0 +1,20 @@
+
+
+
+<table class="table usertable">
+  <tr>
+    <td><h3>All Users</h3></td>
+    <td></td>
+  </tr>
+  <tr ng-repeat="user in users">
+    <td>{{user.username}}</td>
+    <td>{{user.local.email}}</td>
+    <td>
+      <a class="btn btn-primary" ui-sref="viewUser({id:user.username})">View</a>
+      <a class="btn btn-danger"  ng-click="deleteUser(user)">Delete</a>
+    </td>
+  </tr>
+</table>
+
+
+<a ui-sref="newUser" class="btn-default btn-lg "><i class="glyphicon glyphicon-plus"></i>  Add user</a> 
