@@ -106,40 +106,6 @@ app.factory('auth', ['$http', '$window',
 
 
 
-// Config states for ui-router
-
-// app.config([
-//     '$stateProvider',
-//     '$urlRouterProvider',
-//     function($stateProvider, $urlRouterProvider) {
-//         $urlRouterProvider.otherwise('home');
-//         $stateProvider
-
-//         .state('home', {
-//             url: '/home',
-//             templateUrl: '/partials/home.html',
-//             controller: 'MainViewCtrl'
-//         })
-
-//         .state('usersAll', {
-//             url: '/users',
-//             templateUrl: '/partials/UsersViewAll.html',
-//             controller: 'UsersAllCtrl'
-//         })
-
-//         .state('users', {
-//             url: '/user/{id}',
-//             templateUrl: '/partials/UsersView.html',
-//             controller: 'UsersCtrl'
-//         });
-
-
-
-//     }
-// ]);
-
-
-
 app.config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -200,6 +166,17 @@ app.config([
                     }
                 }
             ]
+        }).state('student', {
+            url: '/student',
+            templateUrl: 'partials/student-profile-own.html',
+            controller: 'StudentController',
+            onEnter: ['$state', 'auth',
+                function($state, auth) {
+                    if (!auth.isLoggedIn()) {
+                        $state.go('login');
+                    }
+                }
+            ]
         })
 
     }
@@ -211,6 +188,10 @@ app.config([
 
 
 app.controller('UserListController', function($scope, $state, popupService, $window, User) {
+
+    
+    console.log($scope.user);
+
     $scope.users = User.query(); //fetch all users. Issues a GET to /api/users
 
     $scope.deleteUser = function(user) { // Delete a user. Issues a DELETE to /api/users/:id
@@ -253,6 +234,14 @@ app.controller('UserListController', function($scope, $state, popupService, $win
     $scope.loadUser(); // Load a user which can be edited on UI
 });
 
+app.controller('StudentController',  function( $scope, $stateParams, User) {
+
+    User.get( {id: $stateParams.id} ).$promise.then(function(data) {
+        $scope.user = data;
+        console.log("Student detected: "+$scope.user.username);
+
+        })});
+
 
 app.controller('AuthCtrl', [
     '$scope',
@@ -273,7 +262,12 @@ app.controller('AuthCtrl', [
             auth.logIn($scope.user).error(function(error) {
                 $scope.error = error;
             }).then(function() {
-                $state.go('users');
+                if ($scope.user.username=="admin") {
+                    $state.go('users');    
+                }else{
+                    $state.go('student');    
+                }
+                
             });
         };
     }

@@ -1,5 +1,5 @@
 .panel-black{
-border-color: #000;
+/*border-color: #000;*/
 }
 .panel-black > .panel-heading {
 background-image: none;
@@ -7,6 +7,7 @@ background-color: #000;
 color: white;
 }
 .black-white{
+    background-image: none;
 background-color:#000;
 color:#fff
 }
@@ -15,13 +16,22 @@ background-color:#fff;
 color:#000;
 }
 .bg-black{
-background-color:#000000;
+background-color:black;
+}
+
+.bg-white{
+background-color:white;
 }
 .fg-white{
 color:#ffffff;
 }
 .btn-black {
 background-color:#000000;
+color:#ffffff;
+}
+
+.btn-black:hover {
+background-color:#222;
 color:#ffffff;
 }
 
@@ -115,8 +125,22 @@ border-radius:4px;
 /* End Notifications*/
 
 
+/*Student profile view*/
+
+.dp-container{position:relative; float:left;}
+    
+    .cpic {
+    position: absolute;
+    visibility: hidden;
+    }
+    .dp-container a {
+      background-color: gray;
+    }
+    .dp-container:hover a span {display:block;  background:white; padding: 0 8; visibility: visible;}
 
 
+
+/* End Student profile view*/
 
 
 

@@ -218,7 +218,7 @@ module.exports = function(app, passport) {
                 "error": "You do not have sufficient permission"
             });
 
-
+        console.log(req.body);
 
         delete req.body["_id"];
 
@@ -248,7 +248,7 @@ module.exports = function(app, passport) {
             res.json({
                 "error": "You do not have sufficient permission"
             });
-
+        console.log("Requested to delete "+req.body._id);
 
         User.remove({
             _id: req.params._id
