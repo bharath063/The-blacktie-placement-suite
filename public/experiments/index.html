@@ -1,0 +1,151 @@
+<html ng-app="blacktie" class="ng-scope">
+<head>
+    <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+    </style>
+    <title>The Blacktie placement suite</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-cosmo.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css">
+    <!-- required JS-->
+
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/angular.js"></script>
+    <script type="text/javascript" src="/javascripts/angular-resource.js"></script>
+    <script type="text/javascript" src="/javascripts/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/javascripts/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/angular-breadcrumb.js"></script>
+
+
+    <!-- required JS end -->
+    <style type="text/css">
+        body {
+            background-color: white;
+            padding: 70px;
+        }
+        input.ng-valid.ng-touched {
+            background-color: #78FA89;
+        }
+        input.ng-invalid.ng-touched {
+            background-color: #FA787E;
+        }
+        .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+    </style>
+
+    <!-- Animations-->
+    <style>
+        .animate-container          { position:relative; min-height:300px; overflow:hidden; padding:30px; }
+        .animate-views             { width:auto; }
+        .animate-views.ng-enter,
+        .animate-views.ng-leave      { position:absolute; left:30px; right:30px;
+            transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease;
+        }
+
+        /* enter animation */
+        .animate-views.ng-enter            {
+            -webkit-animation:slideInRight 0.5s both ease;
+            -moz-animation:slideInRight 0.5s both ease;
+            animation:slideInRight 0.5s both ease;
+        }
+
+        /* leave animation */
+        .animate-views.ng-leave            {
+            -webkit-animation:slideOutLeft 0.5s both ease;
+            -moz-animation:slideOutLeft 0.5s both ease;
+            animation:slideOutLeft 0.5s both ease;
+        }
+
+        /* ANIMATIONS
+        ============================================================================= */
+        /* slide out to the left */
+        @keyframes slideOutLeft {
+            to      { transform: translateX(-200%); }
+        }
+        @-moz-keyframes slideOutLeft {
+            to      { -moz-transform: translateX(-200%); }
+        }
+        @-webkit-keyframes slideOutLeft {
+            to      { -webkit-transform: translateX(-200%); }
+        }
+
+        /* slide in from the right */
+        @keyframes slideInRight {
+            from    { transform:translateX(200%); }
+            to      { transform: translateX(0); }
+        }
+        @-moz-keyframes slideInRight {
+            from    { -moz-transform:translateX(200%); }
+            to      { -moz-transform: translateX(0); }
+        }
+        @-webkit-keyframes slideInRight {
+            from    { -webkit-transform:translateX(200%); }
+            to      { -webkit-transform: translateX(0); }
+        }
+
+
+
+        /* set reference point */
+        .tab-animation > .tab-content {
+            position: relative;
+        }
+
+        /* set animate effect */
+        .tab-animation > .tab-content > .tab-pane{
+            transition: 0.2s linear opacity;
+        }
+
+        /* overwrite display: none and remove from document flow */
+        .tab-animation > .tab-content > .tab-pane.active-remove {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: block;
+        }
+
+        /* opacity=0 when removing "active" class */
+        .tab-animation > .tab-content > .tab-pane.active-remove-active {
+            opacity: 0;
+        }
+
+        /* opacity=0 when adding "active" class */
+        .tab-animation > .tab-content > .tab-pane.active-add {
+            opacity: 0;
+        }
+    </style>
+
+</head>
+<body ng-controller="DashboardCtrl as Dashboard">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#/" class="pull-left"><img src="/favicon.png" height="50px"></a>
+            <a class="navbar-brand" href="#/" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
+        </div>
+
+    </div>
+</nav>
+<div class="container" >
+
+
+
+    <div ui-view="dashboard">
+
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./Controllers.js"></script>
+</body>
+</html>

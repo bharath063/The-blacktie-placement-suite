@@ -1,604 +1,617 @@
-<html ng-app="blacktie" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
-    <title>The Blacktie placement suite</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-cosmo.min.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css">
-    <style type="text/css">
-    body {
-    background-color: white;
-    padding: 70px;
-    }
-    </style>
-    
-</head>
-<!-- <body ng-controller="MainCtrl"> -->
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <a href="#/" class="pull-left"><img src="/favicon.png" height="50px"></a>
-                <a class="navbar-brand" href="#/" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
-            </div>
-            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav ng-scope" ng-controller="NavCtrl">
-                    <li ng-show="isLoggedIn()">
-                        <a href="#" lass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="ng-binding">
-                            <span class="glyphicon glyphicon-user"></span>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Edit Profile <i class="glyphicon glyphicon-pencil"></i></a></li>
+<html ng-app="blacktie" class="ng-scope">
+    <head>
+        <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+        .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+        </style>
+        <title>The Blacktie placement suite</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-cosmo.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css">
+        <style type="text/css">
+        body {
+        background-color: white;
+        padding: 70px;
+        }
+        </style>
+        
+    </head>
+    <!-- <body ng-controller="MainCtrl"> -->
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="#/" class="pull-left"><img src="/favicon.png" height="50px"></a>
+                    <a class="navbar-brand" href="#/" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav ng-scope"  ng-controller="NavCtrl" >
+                        <li ng-show="isLoggedIn()">
+                            <a href="#" lass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="ng-binding">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Edit Profile <i class="glyphicon glyphicon-pencil"></i></a></li>
+                            </ul>
+                        </li>
+                        
+                        <li ng-show="isLoggedIn()">
+                            <a role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
+                                <span class="glyphicon glyphicon-bell"></span><span class="badge badge-notify ng-binding">6</span><span class="visible-xs-inline">Notifications</span>
+                            </a>
+                            <ul class="dropdown-menu notifications" role="menu">
+                                <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-bell"></span> Notifications</h4>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper">
+                                <!-- ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/1" ng-repeat="notification in unreadNotifications">
+                                <div class="notification-item">
+                                    <h4 class="item-title ng-binding">Job invitation from Skava at 20-02-2016</h4>
+                                    <p class="item-info ng-binding">You have been invited to take a test for skava</p>
+                                </div>
+                                </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/2" ng-repeat="notification in unreadNotifications">
+                                <div class="notification-item">
+                                    <h4 class="item-title ng-binding">Job invitation from TCS at 20-02-2016</h4>
+                                    <p class="item-info ng-binding">You have been invited to take a test for TCS</p>
+                                </div>
+                                </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/3" ng-repeat="notification in unreadNotifications">
+                                <div class="notification-item">
+                                    <h4 class="item-title ng-binding">Exam reminder at 20-02-2016 2 P.M</h4>
+                                    <p class="item-info ng-binding">The assessment for Infosys is underway right now</p>
+                                </div>
+                                </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/4" ng-repeat="notification in unreadNotifications">
+                                <div class="notification-item">
+                                    <h4 class="item-title ng-binding">Job invitation from Mindtree at 20-02-2016</h4>
+                                    <p class="item-info ng-binding">You have been invited to take a test for Mindtree</p>
+                                </div>
+                                </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/6" ng-repeat="notification in unreadNotifications">
+                                <div class="notification-item">
+                                    <h4 class="item-title ng-binding">Job invitation from Moris at 20-02-2016</h4>
+                                    <p class="item-info ng-binding">You have been invited to take a test for Mindtree</p>
+                                </div>
+                                </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/4" ng-repeat="notification in unreadNotifications">
+                                <div class="notification-item">
+                                    <h4 class="item-title ng-binding">Job invitation from Infosys at </h4>
+                                    <p class="item-info ng-binding">You have been invited to take a test for Infosys</p>
+                                </div>
+                                </a><!-- end ngRepeat: notification in unreadNotifications -->
+                                <hr>
+                                
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notification-footer text-center"><a href="#/notifications/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
                         </ul>
                     </li>
                     
                     <li ng-show="isLoggedIn()">
                         <a role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
-                            <span class="glyphicon glyphicon-bell"></span><span class="badge badge-notify ng-binding">6</span><span class="visible-xs-inline">Notifications</span>
-                        </a>
-                        <ul class="dropdown-menu notifications" role="menu">
-                            <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-bell"></span> Notifications</h4>
-                        </div>
-                        <li class="divider"></li>
-                        <div class="notifications-wrapper">
-                            <!-- ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/1" ng-repeat="notification in unreadNotifications">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding">Job invitation from Skava at 20-02-2016</h4>
-                                <p class="item-info ng-binding">You have been invited to take a test for skava</p>
+                            <span class="glyphicon glyphicon-envelope"></span><span class="badge badge-notify ng-binding">3</span><span class="visible-xs-inline">Messages</span></a>
+                            <ul class="dropdown-menu notifications" role="menu">
+                                <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-envelope"></span> Messages</h4>
                             </div>
-                            </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/2" ng-repeat="notification in unreadNotifications">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding">Job invitation from TCS at 20-02-2016</h4>
-                                <p class="item-info ng-binding">You have been invited to take a test for TCS</p>
-                            </div>
-                            </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/3" ng-repeat="notification in unreadNotifications">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding">Exam reminder at 20-02-2016 2 P.M</h4>
-                                <p class="item-info ng-binding">The assessment for Infosys is underway right now</p>
-                            </div>
-                            </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/4" ng-repeat="notification in unreadNotifications">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding">Job invitation from Mindtree at 20-02-2016</h4>
-                                <p class="item-info ng-binding">You have been invited to take a test for Mindtree</p>
-                            </div>
-                            </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/6" ng-repeat="notification in unreadNotifications">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding">Job invitation from Moris at 20-02-2016</h4>
-                                <p class="item-info ng-binding">You have been invited to take a test for Mindtree</p>
-                            </div>
-                            </a><!-- end ngRepeat: notification in unreadNotifications --><a class="content ng-scope" href="#notifications/4" ng-repeat="notification in unreadNotifications">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding">Job invitation from Infosys at </h4>
-                                <p class="item-info ng-binding">You have been invited to take a test for Infosys</p>
-                            </div>
-                            </a><!-- end ngRepeat: notification in unreadNotifications -->
-                            <hr>
-                            
-                        </div>
-                        <li class="divider"></li>
-                        <div class="notification-footer text-center"><a href="#/notifications/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper">
+                                <!-- ngRepeat: message in unreadMessages -->
+                                <a class="content ng-scope" href="#messages/1" ng-repeat="message in unreadMessages">
+                                    <div class="notification-item">
+                                        <h4 class="item-title ng-binding"><i class="glyphicon glyphicon-chevron-right white-black"></i> Mindtree HR - Shortlisted for mindtree at 20-02-2016 </h4>
+                                        <p class="item-info ng-binding">Congratulations for being shortlisted for a personal interview for mindtree</p>
+                                        <div class="divider"></div>
+                                    </div>
+                                    </a><!-- end ngRepeat: message in unreadMessages --><a class="content ng-scope" href="#messages/2" ng-repeat="message in unreadMessages">
+                                    <div class="notification-item">
+                                        <h4 class="item-title ng-binding"><i class="glyphicon glyphicon-chevron-right white-black"></i> Skava HR - Shortlisted for Skava at 20-02-2016 </h4>
+                                        <p class="item-info ng-binding">Congratulations for being shortlisted for a personal interview for Skava</p>
+                                        <div class="divider"></div>
+                                    </div>
+                                    </a><!-- end ngRepeat: message in unreadMessages --><a class="content ng-scope" href="#messages/3" ng-repeat="message in unreadMessages">
+                                    <div class="notification-item">
+                                        <h4 class="item-title ng-binding"><i class="glyphicon glyphicon-chevron-right white-black"></i> Admin - Password reset request at 18-02-2016 </h4>
+                                        <p class="item-info ng-binding">Your password reset was successful</p>
+                                        <div class="divider"></div>
+                                    </div>
+                                    </a><!-- end ngRepeat: message in unreadMessages -->
+                                    
+                                </div>
+                                <li class="divider"></li>
+                                <div class="notification-footer text-center"><a href="#messages/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                            </ul>
+                        </li>
+                        <li ng-show="isLoggedIn()"><a href="#" ng-click="logOut()"><span class="glyphicon glyphicon-log-out"></span>&nbsp; <span class="visible-xs-inline">Logout</span></a>
+                        </li><li ng-hide="isLoggedIn()" class="ng-hide"><a href="/#/login">Log In</a></li>
+                        
+                        
+                        
                     </ul>
-                </li>
-                
-                <li ng-show="isLoggedIn()">
-                    <a role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
-                        <span class="glyphicon glyphicon-envelope"></span><span class="badge badge-notify ng-binding">3</span><span class="visible-xs-inline">Messages</span></a>
-                        <ul class="dropdown-menu notifications" role="menu">
-                            <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-envelope"></span> Messages</h4>
-                        </div>
-                        <li class="divider"></li>
-                        <div class="notifications-wrapper">
-                            <!-- ngRepeat: message in unreadMessages -->
-                            <a class="content ng-scope" href="#messages/1" ng-repeat="message in unreadMessages">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding"><i class="glyphicon glyphicon-chevron-right white-black"></i> Mindtree HR - Shortlisted for mindtree at 20-02-2016 </h4>
-                                <p class="item-info ng-binding">Congratulations for being shortlisted for a personal interview for mindtree</p>
-                                <div class="divider"></div>
-                            </div>
-                            </a><!-- end ngRepeat: message in unreadMessages --><a class="content ng-scope" href="#messages/2" ng-repeat="message in unreadMessages">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding"><i class="glyphicon glyphicon-chevron-right white-black"></i> Skava HR - Shortlisted for Skava at 20-02-2016 </h4>
-                                <p class="item-info ng-binding">Congratulations for being shortlisted for a personal interview for Skava</p>
-                                <div class="divider"></div>
-                            </div>
-                            </a><!-- end ngRepeat: message in unreadMessages --><a class="content ng-scope" href="#messages/3" ng-repeat="message in unreadMessages">
-                            <div class="notification-item">
-                                <h4 class="item-title ng-binding"><i class="glyphicon glyphicon-chevron-right white-black"></i> Admin - Password reset request at 18-02-2016 </h4>
-                                <p class="item-info ng-binding">Your password reset was successful</p>
-                                <div class="divider"></div>
-                            </div>
-                            </a><!-- end ngRepeat: message in unreadMessages -->
-                            
-                        </div>
-                        <li class="divider"></li>
-                        <div class="notification-footer text-center"><a href="#messages/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
-                    </ul>
-                </li>
-                <li ng-show="isLoggedIn()"><a href="#" ng-click="logOut()"><span class="glyphicon glyphicon-log-out"></span>&nbsp; <span class="visible-xs-inline">Logout</span></a>
-                </li><li ng-hide="isLoggedIn()" class="ng-hide"><a href="/#/login">Log In</a></li>
-                
-                
-                
-            </ul>
-            
-        </div>
-    </div>
-</nav>
-<div class="container">
-    <!-- uiView:  --><div ui-view="" class="ng-scope">
-    <div class="row ng-scope" style="padding-bottom: 20px;">
-        <div class="col-sm-10"><h1>Welcome, <div ng-model="student.fname" class="ng-pristine ng-untouched ng-valid"></div></h1></div>
-        
-        <div class="col-sm-offset-1 dp-container pull-right">
-            <a href="#/profilepic"><img src="/images/profile.jpg" title="profile image" width="80px" class="img-rounded img-responsive">
-                <span class="cpic text-center">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                    Edit
-                </span>
-            </a>
-            
-            
-            
-            
-        </div>
-        
-    </div>
-    <div class="row ng-scope">
-        <div class="col-sm-3"><!--left col-->
-        
-        <ul class="list-group">
-            <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <span class="text-muted">Profile</span></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>First Name</strong></span> Bharath</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Last Name</strong></span> B</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Department</strong></span> CSE</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>CGPA</strong></span> 7.33</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Backlogs</strong></span> <span class="text-success">None</span></li>
-            <li class="list-group-item text-right">
-                <button class="btn btn-block btn-primary btn-black" data-toggle="modal" data-target='#modal-id'>
-                Edit
-                <i class="glyphicon glyphicon-pencil"></i>
-                </button>
-            </li>
-            
-        </ul>
-        
-        <!--  <div class="panel panel-black">
-            <div class="panel-heading"><i class="fa fa-link fa-1x"></i>  Linkedin Profile </div>
-            <div class="panel-body"><a href="#"><img src="/images/connect-linkedin.png"></a></div>
-        </div> -->
-        <div class="well bg-white">
-            <a href="#/student/connect-linkedin"><img src="/images/connect-linkedin.png"> </a>
-        </div>
-        
-        
-        
-        
-        <ul class="list-group">
-            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-        </ul>
-        
-        <div class="panel panel-default ">
-            <div class="panel-heading">Social Media</div>
-            <div class="panel-body">
-                <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                    
+                </div>
             </div>
-        </div>
-        
-        </div><!--/col-3-->
-        <div class="col-sm-9">
-            
-            <ul class="nav nav-tabs nav-justified" id="myTab">
-                <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-                <li><a href="#messages" data-toggle="tab">Messages &nbsp;<span class="badge">{{ messages.length }}</span> </a></li>
-                <li><a href="#settings" data-toggle="tab">Notifications &nbsp;<span class="badge">{{ notifications.length }}</span></a></li>
-            </ul>
-            
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Assessment name</th>
-                                    
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                    <!--    <th>Dummy 1</th>
-                                    <th>Dummy 2</th>
-                                    <th>Passed</th> -->
-                                </tr>
-                            </thead>
-                            <tbody id="items">
-                                <tr style="display: table-row;" ng-repeat="news in newsfeed">
-                                    <td>{{news.id}}</td>
-                                    <td>{{news.name}} </td>
-                                    <td>{{news.status}}</td>
-                                    <td>{{news.time}}</td>
-                                    
-                                </tr>
-                                <!-- <tr style="display: table-row;">
-                                    <td>2</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: table-row;">
-                                    <td>3</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: table-row;">
-                                    <td>4</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: table-row;">
-                                    <td>5</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: none;">
-                                    <td>6</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: none;">
-                                    <td>7</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: none;">
-                                    <td>8</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr>
-                                <tr style="display: none;">
-                                    <td>9</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                <tr style="display: none;">
-                                    <td>10</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    
-                                </tr> -->
-                            </tbody>
-                        </table>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-4 text-center">
-                                <ul class="pagination" id="myPager"><li><a href="#" class="prev_link">«</a></li><li class="active"><a href="#" class="page_link active">1</a></li><li><a href="#" class="page_link">2</a></li><li><a href="#" class="next_link">»</a></li></ul>
-                            </div>
-                        </div>
-                        </div><!--/table-resp-->
-                        
-                        <hr>
-                        
-                        <!-- <h4>Recent Activity</h4> -->
-                        
-                        <div class="table-responsive">
-                            <!--   <table class="table table-hover">
-                                
-                                <tbody>
-                                    <tr>
-                                        <td><i class="pull-right fa fa-edit"></i> Today, 1:00 - Jeff Manzi liked your post.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="pull-right fa fa-edit"></i> Today, 12:23 - Mark Friendo liked and shared your post.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="pull-right fa fa-edit"></i> Today, 12:20 - You posted a new blog entry title "Why social media is".</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="pull-right fa fa-edit"></i> Yesterday - Karen P. liked your post.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="pull-right fa fa-edit"></i> 2 Days Ago - Philip W. liked your post.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="pull-right fa fa-edit"></i> 2 Days Ago - Jeff Manzi liked your post.</td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
-                        </div>
-                        
-                        </div><!--/tab-pane-->
-                        <div class="tab-pane" id="messages">
+        </nav>
+        <div class="container">
+            <!-- uiView:  --><!-- <div ui-view="" class="ng-scope"></div> -->
+            <div class="row ng-scope" style="padding-bottom: 20px;">
+                <div class="col-sm-10"><h1>Welcome, <div ng-model="student.fname" class="ng-pristine ng-untouched ng-valid"></div></h1></div>
+                
+                <div class="col-sm-offset-1 dp-container pull-right">
+                    <a href="#/profilepic"><img src="/images/profile.jpg" title="profile image" width="80px" class="img-rounded img-responsive">
+                        <span class="cpic text-center">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            Edit
+                        </span>
+                    </a>
+                    
+                    
+                    
+                    
+                </div>
+                
+            </div>
+            <div class="row ng-scope">
+                <div class="col-sm-3"><!--left col-->
+                
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <span class="text-muted">Profile</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>First Name</strong></span> Bharath</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Last Name</strong></span> B</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Department</strong></span> CSE</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>CGPA</strong></span> 7.33</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Backlogs</strong></span> <span class="text-success">None</span></li>
+                    <li class="list-group-item text-right">
+                        <button class="btn btn-block btn-primary btn-black" data-toggle="modal" data-target='#modal-id'>
+                        Edit
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        </button>
+                    </li>
+                    
+                </ul>
+                
+                <!--  <div class="panel panel-black">
+                    <div class="panel-heading"><i class="fa fa-link fa-1x"></i>  Linkedin Profile </div>
+                    <div class="panel-body"><a href="#"><img src="/images/connect-linkedin.png"></a></div>
+                </div> -->
+                <div class="well bg-white">
+                    <a href="#/student/connect-linkedin"><img src="/images/connect-linkedin.png"> </a>
+                </div>
+                
+                
+                
+                
+                <!--     <ul class="list-group">
+                    <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+                </ul>
+                
+                <div class="panel panel-default ">
+                    <div class="panel-heading">Social Media</div>
+                    <div class="panel-body">
+                        <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i>
+                        <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i>
+                        <i class="fa fa-google-plus fa-2x"></i>
+                    </div>
+                </div>
+                -->
+                </div><!--/col-3-->
+
+                <div class="col-sm-9" ng-controller="StudentTabCtrl as StudentTabCtrl">
+                    <!-- Insert tab data here -->
+                    <uib-tabset active="activeForm">
+                      
+                     
+                      <uib-tab index="0" heading="Job Invitations {{unreadNotifications.length }}" >
+                         
+                        <ul class="list-group" ng-controller="NotificationCtrl as NotificationCtrl" >
+                            <li class="list-group-item text-muted">Notifications</li>
+                            <li class="list-group-item text-right" ng-repeat="notification in NotificationCtrl.unreadNotifications">
+                                <a href="#" class="pull-left"> {{notification.title}}</a>
+                                {{notification.date}} &nbsp; 
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+                                View
+                                </button>
+                            </li>
+                        </ul>   
+                      </uib-tab>
+                       <uib-tab index="1" heading="Messages {{unreadMessages.length }}" >
                             
-                            <h2></h2>
-                            
-                            <ul class="list-group">
+                            <ul class="list-group" ng-controller="MessageCtrl as MessageCtrl" >
                                 <li class="list-group-item text-muted">Inbox</li>
-                                <li class="list-group-item text-right" ng-repeat="message in messages">
-                                    <a href="#" class="pull-left"> {{message.title}}</a>
-                                    {{message.time}}
+                                <li class="list-group-item text-right" ng-repeat="message in MessageCtrl.unreadMessages">
+                                    <a href="#" class="pull-left"> {{message.subject}}</a>
+                                    {{message.date}} &nbsp;
                                     <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
                                     Read
                                     </button>
                                 </li>
                             </ul>
-                            </div><!--/tab-pane-->
-                            <div class="tab-pane" id="settings">
-                                
-                                <hr>
-                                <ul class="list-group">
-                                    <li class="list-group-item text-muted">Inbox</li>
-                                    <li class="list-group-item text-right" ng-repeat="message in messages">
-                                        <a href="#" class="pull-left"> {{notification.title}}</a>
-                                        {{notification.time}}
-                                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
-                                        View
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            </div><!--/tab-pane-->
-                            </div><!--/tab-content-->
-                            </div><!--/col-9-->
-                            <!--/row-->
-                            
-                            <script type="text/javascript" class="ng-scope">
-                            /* pagination */
-                            $.fn.pageMe = function(opts){
-                            var $this = this,
-                            defaults = {
-                            perPage: 7,
-                            showPrevNext: false,
-                            numbersPerPage: 1,
-                            hidePageNumbers: false
-                            },
-                            settings = $.extend(defaults, opts);
-                            
-                            var listElement = $this;
-                            var perPage = settings.perPage;
-                            var children = listElement.children();
-                            var pager = $('.pagination');
-                            
-                            if (typeof settings.childSelector!="undefined") {
-                            children = listElement.find(settings.childSelector);
-                            }
-                            
-                            if (typeof settings.pagerSelector!="undefined") {
-                            pager = $(settings.pagerSelector);
-                            }
-                            
-                            var numItems = children.size();
-                            var numPages = Math.ceil(numItems/perPage);
-                            pager.data("curr",0);
-                            
-                            if (settings.showPrevNext){
-                            $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
-                            }
-                            
-                            var curr = 0;
-                            while(numPages > curr && (settings.hidePageNumbers==false)){
-                            $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo(pager);
-                            curr++;
-                            }
-                            
-                            if (settings.numbersPerPage>1) {
-                            $('.page_link').hide();
-                            $('.page_link').slice(pager.data("curr"), settings.numbersPerPage).show();
-                            }
-                            
-                            if (settings.showPrevNext){
-                            $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
-                            }
-                            
-                            pager.find('.page_link:first').addClass('active');
-                            if (numPages<=1) {
-                            pager.find('.next_link').hide();
-                            }
-                            pager.children().eq(1).addClass("active");
-                            
-                            children.hide();
-                            children.slice(0, perPage).show();
-                            
-                            pager.find('li .page_link').click(function(){
-                            var clickedPage = $(this).html().valueOf()-1;
-                            goTo(clickedPage,perPage);
-                            return false;
-                            });
-                            pager.find('li .prev_link').click(function(){
-                            previous();
-                            return false;
-                            });
-                            pager.find('li .next_link').click(function(){
-                            next();
-                            return false;
-                            });
-                            
-                            function previous(){
-                            var goToPage = parseInt(pager.data("curr")) - 1;
-                            goTo(goToPage);
-                            }
-                            
-                            function next(){
-                            goToPage = parseInt(pager.data("curr")) + 1;
-                            goTo(goToPage);
-                            }
-                            
-                            function goTo(page){
-                            var startAt = page * perPage,
-                            endOn = startAt + perPage;
-                            
-                            children.css('display','none').slice(startAt, endOn).show();
-                            
-                            if (page>=1) {
-                            pager.find('.prev_link').show();
-                            }
-                            else {
-                            pager.find('.prev_link').hide();
-                            }
-                            
-                            if (page<(numPages-1)) {
-                            pager.find('.next_link').show();
-                            }
-                            else {
-                            pager.find('.next_link').hide();
-                            }
-                            
-                            pager.data("curr",page);
-                            
-                            if (settings.numbersPerPage>1) {
-                            $('.page_link').hide();
-                            $('.page_link').slice(page, settings.numbersPerPage+page).show();
-                            }
-                            
-                            pager.children().removeClass("active");
-                            pager.children().eq(page+1).addClass("active");
-                            }
-                            };
-                            $('#items').pageMe({pagerSelector:'#myPager',childSelector:'tr',showPrevNext:true,hidePageNumbers:false,perPage:5});
-                            /****/
-                            </script>
-                            <div class="container ng-scope">
-                                <br><br>
-                                
-                            </div></div>
-                        </div>
-                        <!-- Modals -->
-                        <!-- Message modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">{{ message.title}}</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        {{message.body}}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-success"> Accept </button>
-                                    </div>
+                      </uib-tab>
+                      
+                    </uib-tabset>
+                  
+                    <!-- Insert tab data here end-->
+                    </div><!--/col-9-->
+                    </div>  <!--/row-->
+                    
+                    
+                    
+                    <!-- Modals -->
+                    <!-- Message modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">{{ message.title}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {{message.body}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-success"> Accept </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Edit profile Modal -->
-                        <div class="modal fade" id="modal-id">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Edit Profile</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="form ng-pristine ng-valid" action="#" method="post" id="registrationForm">
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <label for="first_name"><h4>First name</h4></label>
-                                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                                                </div>
+                    </div>
+                    <!-- Edit profile Modal -->
+                    <div class="modal fade" id="modal-id">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Edit Profile</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form ng-pristine ng-valid" action="#" method="post" id="registrationForm">
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="first_name"><h4>First name</h4></label>
+                                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
                                             </div>
-                                            <div class="form-group">
-                                                
-                                                <div class="col-xs-6">
-                                                    <label for="last_name"><h4>Last name</h4></label>
-                                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             
-                                            <div class="form-group">
-                                                
-                                                <div class="col-xs-6">
-                                                    <label for="phone"><h4>Phone</h4></label>
-                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                                                </div>
+                                            <div class="col-xs-6">
+                                                <label for="last_name"><h4>Last name</h4></label>
+                                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
                                             </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
                                             
-                                            <div class="form-group">
-                                                <div class="col-xs-6">
-                                                    <label for="mobile"><h4>Mobile</h4></label>
-                                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                                                </div>
+                                            <div class="col-xs-6">
+                                                <label for="phone"><h4>Phone</h4></label>
+                                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
                                             </div>
-                                            <div class="form-group">
-                                                
-                                                <div class="col-xs-6">
-                                                    <label for="email"><h4>Email</h4></label>
-                                                    <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                                                </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="mobile"><h4>Mobile</h4></label>
+                                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
                                             </div>
-                                            <div class="form-group">
-                                                
-                                                <div class="col-xs-6">
-                                                    <label for="email"><h4>Location</h4></label>
-                                                    <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                            <div class="col-xs-6">
+                                                <label for="email"><h4>Email</h4></label>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
                                             </div>
-                                            <div class="form-group">
-                                                
-                                                <div class="col-xs-6">
-                                                    <label for="password"><h4>Password</h4></label>
-                                                    <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                            <div class="col-xs-6">
+                                                <label for="email"><h4>Location</h4></label>
+                                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
                                             </div>
-                                            <div class="form-group">
-                                                
-                                                <div class="col-xs-6">
-                                                    <label for="password2"><h4>Verify</h4></label>
-                                                    <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                            <div class="col-xs-6">
+                                                <label for="password"><h4>Password</h4></label>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
                                             </div>
-                                            <!-- <div class="form-group">
-                                                <div class="col-xs-12">
-                                                    <br>
-                                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                                                </div>
-                                            </div> -->
-                                        </form>
-                                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-default">Save changes</button>
-                                    </div>
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                            <div class="col-xs-6">
+                                                <label for="password2"><h4>Verify</h4></label>
+                                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <br>
+                                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                            </div>
+                                        </div> -->
+                                    </form>
+                                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default">Save changes</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                 
+
+                </div>
+                <script type="text/javascript" src="/javascripts/angular.js"></script>
+                <script type="text/javascript" src="/javascripts/angular-resource.js"></script>
+                <script type="text/javascript" src="/javascripts/angular-ui-router.js"></script>
+                <script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
+                <script type="text/javascript" src="/javascripts/ui-bootstrap.min.js"></script>
+                <script type="text/javascript">
+                var app = new angular.module('blacktie', ['ui.router','ngResource','ui.bootstrap','ngAnimate']);
+
+                    // Ignore below code
+                    app.controller('NavCtrl', [
+                    '$scope',
+                    function($scope ) {
+                    $scope.isLoggedIn = function(){return true};
+                    $scope.username = "Selva";
+                    
+                    console.log("NavCtrl Called");
+                    // This controller controls the navbar buttons and menus
+                    
+                    // $scope.username = user.username;
+                    $scope.unreadMessages = [{
+                        "id": 1,
+                        "subject": "Shortlisted for mindtree",
+                        "from": "Mindtree HR",
+                        "date": "20-02-2016",
+                        "body": "Congratulations for being shortlisted for a personal interview for mindtree"
+                        }, {
+                        "id": 2,
+                        "subject": "Shortlisted for Skava",
+                        "from": "Skava HR",
+                        "date": "20-02-2016",
+                        "body": "Congratulations for being shortlisted for a personal interview for Skava"
+                        }, {
+                        "id": 3,
+                        "subject": "Password reset request",
+                        "from": "Admin",
+                        "date": "18-02-2016",
+                        "body": "Your password reset was successful"
+                        }];
+                        $scope.unreadNotifications = [{
+                        "id": 1,
+                        "title": "Job invitation from Skava",
+                        "date": "20-02-2016",
+                        "body": "You have been invited to take a test for skava"
+                        }, {
+                        "id": 2,
+                        "title": "Job invitation from TCS",
+                        "date": "20-02-2016",
+                        "body": "You have been invited to take a test for TCS"
+                        }, {
+                        "id": 3,
+                        "title": "Exam reminder",
+                        "date": "20-02-2016 2 P.M",
+                        "body": "The assessment for Infosys is underway right now"
+                        }, {
+                        "id": 4,
+                        "title": "Job invitation from Mindtree",
+                        "date": "20-02-2016",
+                        "body": "You have been invited to take a test for Mindtree"
+                        }, {
+                        "id": 6,
+                        "title": "Job invitation from Moris",
+                        "date": "20-02-2016",
+                        "body": "You have been invited to take a test for Mindtree"
+                    }];
+                    
+                    }
+                ]);
+                </script>
+
+                <script type="text/javascript">
+
+                    app.controller('MessageCtrl', [
+                    '$scope',
+                    function($scope ) {
+                    
+                    console.log("MessageCtrl Called");
+                    // This controller controls the navbar buttons and menus
+                    
+                    // $scope.username = user.username;
+                    $scope.unreadMessages = [{
+                            "id": 1,
+                            "subject": "Shortlisted for mindtree",
+                            "from": "Mindtree HR",
+                            "date": "20-02-2016",
+                            "body": "Congratulations for being shortlisted for a personal interview for mindtree"
+                            }, {
+                            "id": 2,
+                            "subject": "Shortlisted for Skava",
+                            "from": "Skava HR",
+                            "date": "20-02-2016",
+                            "body": "Congratulations for being shortlisted for a personal interview for Skava"
+                            }, {
+                            "id": 3,
+                            "subject": "Password reset request",
+                            "from": "Admin",
+                            "date": "18-02-2016",
+                            "body": "Your password reset was successful"
+                            }];
+                            
                         
-                        <!-- Edit profile Modal End-->
-                        <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
-                        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
-                        <!-- <script type="text/javascript" src="javascripts/angular.js"></script>
-                        <script type="text/javascript" src="javascripts/angular-ui-router.js"></script>
-                        <script type="text/javascript" src="javascripts/angular-resource.js"></script>
-                        <script type="text/javascript" src="javascripts/app.js"></script> -->
-                        <!-- <script type="text/javascript" src="javascripts/states/states.js"></script>
-                        <script type="text/javascript" src="javascripts/controllers/MainCtrl.js"></script>
-                        <script type="text/javascript" src="javascripts/controllers/NavCtrl.js"></script>
-                        <script type="text/javascript" src="javascripts/services/users.js"></script>
-                        <script type="text/javascript" src="javascripts/controllers/MainViewCtrl.js"></script> -->
-                    </body></html>
+                        }
+                    ]);
+                    
+
+                </script>
+    
+
+                <script>
+                    app.controller('NotificationCtrl', [
+                        '$scope',
+                        function($scope ) {
+                                                
+                        console.log("NotificationCtrl Called");
+                    
+                            $scope.unreadNotifications = [{
+                            "id": 1,
+                            "title": "Job invitation from Skava",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for skava"
+                            }, {
+                            "id": 2,
+                            "title": "Job invitation from TCS",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for TCS"
+                            }, {
+                            "id": 3,
+                            "title": "Exam reminder",
+                            "date": "20-02-2016 2 P.M",
+                            "body": "The assessment for Infosys is underway right now"
+                            }, {
+                            "id": 4,
+                            "title": "Job invitation from Mindtree",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for Mindtree"
+                            }, {
+                            "id": 6,
+                            "title": "Job invitation from Moris",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for Mindtree"
+                        }];
+                        
+                        }
+                    ]);
+                </script>
+
+    
+
+                <script type="text/javascript">
+
+                    app.controller('StudentTabCtrl', function ($scope, $window) {
+                                          
+                       
+                    });
+
+
+                </script>
+
+                <script type="text/javascript">
+                    app.controller('StudentHomeCtrl', [
+                        '$scope',
+                        function($scope ) {
+                                                
+                        console.log("StudentHomeCtrl Called");
+                    
+                            $scope.newsFeed = [{
+                            "id": 1,
+                            "title": "Job invitation from Skava",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for skava",
+                            "status":"Invited"
+                            }, {
+                            "id": 2,
+                            "title": "Job invitation from TCS",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for TCS",
+                            "status":"Attended"
+                            }, {
+                            "id": 3,
+                            "title": "Exam reminder",
+                            "date": "20-02-2016 2 P.M",
+                            "body": "The assessment for Infosys is underway right now",
+                            "status":"Invited"
+                            }, {
+                            "id": 4,
+                            "title": "Job invitation from Mindtree",
+                            "date": "20-02-2016",
+                            "body": "You have been invited to take a test for Mindtree",
+                            "status":"Not elligible"
+                            }];
+                        
+                        }
+                    ]);
+
+                </script>
+
+                <script type="text/javascript">
+                    app.controller('studentUpdateProfileCtrl', function ($scope, $uibModal, $log) {
+
+                      $scope.items = ['item1', 'item2', 'item3'];
+
+                      $scope.animationsEnabled = true;
+
+                      $scope.open = function (size) {
+
+                        var modalInstance = $uibModal.open({
+                          animation: $scope.animationsEnabled,
+                          templateUrl: 'update-student-profile-modal.html',
+                          controller: 'ModalInstanceCtrl',
+                          size: size,
+                          resolve: {
+                            items: function () {
+                              return $scope.items;
+                            }
+                          }
+                        });
+
+                        modalInstance.result.then(function (selectedItem) {
+                          $scope.selected = selectedItem;
+                        }, function () {
+                          $log.info('Modal dismissed at: ' + new Date());
+                        });
+                      };
+
+                      $scope.toggleAnimation = function () {
+                        $scope.animationsEnabled = !$scope.animationsEnabled;
+                      };
+
+                    });
+
+                    app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+
+                      $scope.items = items;
+                      $scope.selected = {
+                        item: $scope.items[0]
+                      };
+
+                      $scope.ok = function () {
+                        $uibModalInstance.close($scope.selected.item);
+                      };
+
+                      $scope.cancel = function () {
+                        $uibModalInstance.dismiss('cancel');
+                      };
+                    });
+                        
+
+
+
+                </script>
+
+
+                   <!-- UI.Bootstrap Edit Profile Modal -->
+                    <div ng-controller="studentUpdateProfileCtrl">
+
+                        <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+                        <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
+                        <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
+                        <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
+                        <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+                    </div>
+
+                    <!-- UI.Bootstrap Edit Profile Modal End -->
+
+            </body>
+        </html>

@@ -6,6 +6,11 @@ background-image: none;
 background-color: #000;
 color: white;
 }
+.panel-black > .panel-footer {
+background-image: none;
+background-color: #000;
+color: white;
+}
 .black-white{
     background-image: none;
 background-color:#000;

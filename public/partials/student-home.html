@@ -1,0 +1,128 @@
+<html ng-app="blacktie" class="ng-scope">
+    <head>
+        <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+        .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+        </style>
+        <title>The Blacktie placement suite</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-cosmo.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css">
+        <!-- required JS-->
+        
+
+        <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+        <script type="text/javascript" src="/javascripts/angular-resource.js"></script>
+        <script type="text/javascript" src="/javascripts/angular-ui-router.js"></script>
+        <script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
+        <script type="text/javascript" src="/javascripts/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/student-app.js"></script>
+
+        <!-- required JS end -->
+        <style type="text/css">
+        body {
+        background-color: white;
+        padding: 70px;
+        }
+        input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }
+  input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+        </style>
+        
+    </head>
+    <body ng-controller="StudentHomeCtrl as studentHome">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="#/" class="pull-left"><img src="/favicon.png" height="50px"></a>
+                    <a class="navbar-brand" href="#/" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav ng-scope"  >
+
+                        <li ng-show="studentHome.isLoggedIn()" ng-controller="NotificationsCtrl as notifications">
+                            <a role="button" data-toggle="dropdown"  style="text-decoration:none;" ui-sref='StudentHome'>
+                                <span class="glyphicon glyphicon-bell"></span><span class="badge badge-notify ng-binding">{{ notifications.unreadNotifications.length}}</span><span class="visible-xs-inline">Notifications</span>
+                            </a>
+                        </li>
+                    
+                        <li ng-show="studentHome.isLoggedIn()" ng-controller="MessagesCtrl as MessageCtrl">
+                            <a role="button" data-toggle="dropdown" data-target="#" ui-sref='StudentHome' style="text-decoration:none;">
+                                <span class="glyphicon glyphicon-envelope"></span><span class="badge badge-notify ng-binding">{{ MessageCtrl.unreadMessages.length}}</span><span class="visible-xs-inline">Messages</span></a>
+                                
+                            </li>
+                            <li ng-show="studentHome.isLoggedIn()"><a href="#" ng-click="logOut()"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a>
+                            </li><li ng-hide="studentHome.isLoggedIn()" class="ng-hide"><a href="/#/login">Log In</a></li>
+
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+        <div class="container" >
+            <div class="row ng-scope" style="padding-bottom: 20px;">
+                <div class="col-sm-10">
+                    <h1><a ui-sref="StudentHome" style="text-decoration: none; color:black;">Welcome, {{studentHome.user.username | uppercase}} </a></h1>
+                </div>
+                <div class="col-sm-offset-1 dp-container pull-right">
+
+                    <a href="edit" ui-sref='StudentEditProfile'><img ng-src="{{studentHome.user.avatar}}" title="Set a profile Picture"  width="80px" class="img-circle img-responsive">
+                        <span class="cpic text-center">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            Edit
+                        </span>
+                    </a>    
+                </div>
+            </div>
+            <div class="row ng-scope">
+                <div class="col-sm-3"><!--left col-->
+                    <ul class="list-group">
+                        <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <span class="text-muted">Profile</span></li>
+                        <li class="list-group-item text-right" ng-show="studentHome.user.fname"><span class="pull-left"><strong>First Name</strong></span> {{studentHome.user.fname}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Last Name</strong></span> {{studentHome.user.lname}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Department</strong></span> {{studentHome.user.department}}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>CGPA</strong></span> <span ng-class="{'text-success': studentHome.user.cgpa >= 7.5 }">{{studentHome.user.cgpa}}</span></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Backlogs</strong></span> <span ng-class="{'text-success': studentHome.user.backlogs=='0' , 'text-danger': studentHome.user.backlogs>0}">{{studentHome.user.backlogs}}</span></li>
+                        <li class="list-group-item text-right">
+                            <a class="btn btn-block btn-primary btn-black"  ui-sref='StudentEditProfile({user : studentHome.user.username })' href="#/edit">
+                            Edit
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <div class="well bg-white">
+                        <a onclick="alert('sorry, not implemented yet!!')" ><img src="/images/connect-linkedin.png" class="img-responsive"> </a>
+                    </div>
+                </div><!--/col-3-->
+
+                <div class="col-sm-9">    
+                    
+
+                    <!-- 
+                         *
+                         *  Main view will be rendered here
+                         *
+
+
+                     -->
+                    <div ui-view>
+                        
+
+                    </div>
+                </div><!--/col-9-->
+            </div>  <!--/row-->
+        </div>  <!--  Student container div End -->         
+    </body>
+</html>

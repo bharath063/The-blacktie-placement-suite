@@ -1,4 +1,4 @@
-var app = new angular.module('blacktie', ['ui.router', 'ngResource']);
+var app = new angular.module('blacktie', ['ui.router', 'ngResource','angular-loading-bar','ngAnimate']);
 
 app.factory('User', ['$resource', 'auth',
     function($resource, auth) {
@@ -84,12 +84,6 @@ app.factory('auth', ['$http', '$window',
             }
         };
 
-        // auth.register = function(user){
-        //   return $http.post('/register', user).success(function(data){
-        //     auth.saveToken(data.token);
-        //   });
-        // };
-
         auth.logIn = function(user) {
             return $http.post('/login', user).success(function(data) {
                 auth.saveToken(data.token);
@@ -173,6 +167,7 @@ app.config([
             onEnter: ['$state', 'auth',
                 function($state, auth) {
                     if (!auth.isLoggedIn()) {
+
                         $state.go('login');
                     }
                 }
@@ -180,8 +175,12 @@ app.config([
         })
 
     }
-]).run(function($state) {
-    $state.go('users'); //make a transition to users state when app starts
+]).run(function($state,auth) {
+    if (!auth.isLoggedIn()) {
+    console.log('here');
+        $state.go('users'); //make a transition to users state when app starts
+
+    }
 });
 
 
@@ -249,14 +248,6 @@ app.controller('AuthCtrl', [
     'auth',
     function($scope, $state, auth) {
         $scope.user = {};
-
-        // $scope.register = function(){
-        //   auth.register($scope.user).error(function(error){
-        //     $scope.error = error;
-        //   }).then(function(){
-        //     $state.go('home');
-        //   });
-        // };
 
         $scope.logIn = function() {
             auth.logIn($scope.user).error(function(error) {
@@ -405,8 +396,29 @@ app.controller('NavCtrl', [
         var incomingNotification = {
             "id": 4,
             "title": "Job invitation from Infosys",
+            "date": "20-02-2016",
             "body": "You have been invited to take a test for Infosys"
         };
         $scope.unreadNotifications.push(incomingNotification);
     }
 ]);
+
+
+
+
+app.controller('StudentTabCtrl', function ($scope, $window) {
+  $scope.tabs = [
+    { title:'Dynamic Title 1', content:'Dynamic content 1' },
+    { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
+  ];
+
+  $scope.alertMe = function() {
+    setTimeout(function() {
+      $window.alert('You\'ve selected the alert tab!');
+    });
+  };
+
+  $scope.model = {
+    name: 'Tabs'
+  };
+});
