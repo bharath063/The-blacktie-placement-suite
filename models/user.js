@@ -28,15 +28,85 @@ var userSchema = new Schema(
             local: {
                 email: String,
                 password: String,
-            },
-            google: {
-                id: String,
-                token: String,
-                email: String,
-                name: String
             }
+
         }
     );
+
+
+ var StudentSchema = new Schema(
+     {
+        fname: String,
+        lname: String,
+        username: String,
+        cgpa: String,
+        department: String,
+        phone: String,
+        address: String,
+        resumeUrl: String,
+        DOB:String,
+        role: {
+            type: String,
+            enum: ['admin', 'student', 'hr'],
+            default: 'student'
+        },
+
+
+        created_at: Date,
+        updated_at: Date,
+        local: {
+            email: String,
+            password: String,
+        }
+
+     }
+ );
+
+ var TestSchema = new Schema(
+     {
+        tid: String,
+        date: String,
+        time: String,
+        cgpa: String,
+        noOfBacklogs: String,
+        companyName: String,
+        jobRole: String,
+        salary: String,
+        location: String,
+        createdBy: String,
+        created_at: Date,
+        updated_at: Date,
+        questionUrl: String,
+        registeredCandidates: [String],
+        shortlistedCandidates: [String]
+
+    }
+ );
+
+
+
+ var HRSchema = new Schema(
+    {
+        username: String,
+        tid: [String],
+        companyName: String,
+        local:{
+            email:String,
+            password: String
+        },
+        fname: String,
+        lname: String,
+        phone: String,
+        created_at: Date,
+        updated_at: Date
+
+    }
+ );
+
+
+
+
+
 
 
 // methods ======================

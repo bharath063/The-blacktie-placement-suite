@@ -1,0 +1,37 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th> Rank </th>
+            <th> Name </th>
+            <th> Department </th>
+            <th> Email </th>
+            <th> Shortlist?</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td> 1 </td>
+            <td> Bharath B </td>
+            <td> CSE </td>
+            <td><a href="mailto:bharath18aug@gmail.com "> bharath18aug@gmail.com </td>
+            <td><input type="checkbox"></input></td>
+        </tr>
+
+        <tr ng-repeat="candidate in vm.shortlistedCandidates | orderBy:'-score'">
+
+            <td> {{ $index+1 }} </td>
+            <td> {{ candidate.fname}} {{candidate.lname}} </td>
+            <td> {{ candidate.department }} </td>
+            <td> <a href="mailto:{{candidate.local.email}} "> {{candidate.local.email}}  </a> </td>
+
+            <td></td>
+
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <button class="button btn-block btn-lg btn-default" ng-click="vm.openModal()"> Invite for next phase </button>
+</div>

@@ -1,0 +1,15 @@
+<div class="panel panel-default panel-black">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="glyphicon glyphicon-envelope"></i><b> From : </b> {{vm.message.from}} <b> Subject: </b>{{vm.message.subject}}
+
+            <div class="pull-right" ng-show="vm.message.timestamp"> on {{vm.message.timestamp}}</div>
+        </h3>
+    </div>
+    <div class="panel-body">
+            {{vm.message.body}}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        <button type="button" class="btn btn-default btn-block" onclick="alert('Thank you. We are looking forward to meet you! ')" ng-show="vm.message.assessmentDate">Register for the test on {{vm.message.assessmentDate}}</button>
+    </div>
+</div>
+

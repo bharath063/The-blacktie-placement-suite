@@ -24,7 +24,7 @@ require('./config/passportJWT');
 // var users = require('./routes/users');
 // var login = require('./routes/login');
 // var dashboard = require('./routes/dashboard');
-var api = require('./routes/api');
+//var api = require('./routes/api');
 var app = express();
 
 // view engine setup

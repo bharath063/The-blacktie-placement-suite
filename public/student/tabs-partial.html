@@ -1,0 +1,27 @@
+<uib-tabset active="activeForm" class="tab-animation">
+
+    <uib-tab index="0" heading="Job Invitations" >
+
+        <ul class="list-group" ng-controller="NotificationsCtrl as notifications" >
+            <li class="list-group-item text-muted">Notifications</li>
+            <li class="list-group-item text-right" ng-repeat="notification in notifications.unreadNotifications">
+                <a href="#" class="pull-left" ui-sref='.ViewNotification({"id" : "{{notification.id}}"})'> {{notification.title}}</a>
+                {{notification.timestamp}} &nbsp;
+
+            </li>
+        </ul>
+    </uib-tab>
+    <uib-tab index="1" heading="Messages" >
+        <ul class="list-group" ng-controller="MessagesCtrl as MessageCtrl" >
+            <li class="list-group-item text-muted">Inbox</li>
+            <li class="list-group-item text-right" ng-repeat="message in MessageCtrl.unreadMessages">
+                <p class="pull-left"><a ui-sref='.ViewMessage({"id" : "{{message.id}}"})'> {{message.subject}} </a>  from {{message.from}}</p>
+                {{message.timestamp}} &nbsp;
+                <!--<button type="button" class="btn btn-default btn-sm" ui-sref='dashboard.ViewMessage({"id" : "{{message.id}}"})'>-->
+                    <!--Read-->
+                <!--</button>-->
+            </li>
+        </ul>
+    </uib-tab>
+</uib-tabset>
+

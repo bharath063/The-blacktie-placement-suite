@@ -1,0 +1,143 @@
+
+
+<h3>
+
+</h3>
+
+<!--Modal Begin -->
+
+<div>
+    <!--  <div > -->
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">View Existing assessment</h4>
+    <hr>
+    <!-- </div> -->
+    <!-- <div > -->
+    <div class="col-xs-12">
+        <form class="ng-pristine ng-valid" method="post" id="registrationForm">
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="first_name"><h4>Date of Assessment</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.date}} </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>Company Name</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.companyName}} </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="last_name"><h4>Minimum CGPA</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.criteria.cgpa}} </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="phone"><h4>Maximum Backlogs</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.criteria.backlogs}} </p>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>Job Role</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.jobRole}} </p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>Salary (L.P.A)</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.salary}} </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="phone"><h4>Job Location</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.location}} </p>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>No. of rounds</h4></label>
+                    <p class="form-control-static"> {{vm.assessment.noOfRounds}} </p>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+
+                <div class="col-xs-12">
+                    <label for="profilePicture"><h4>Job Description</h4></label>
+                    <p class="form-control-static" rows="5" placeholder="Detailed Job Description"> {{vm.assessment.description}}</p>
+                </div>
+
+
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-12">
+                    <label for="profilePicture"><h4>Registered Candidates ({{vm.assessment.registeredCandidates.length}})</h4></label>
+                    <select multiple class="form-control">
+                        <option ng-repeat="candidate in vm.assessment.registeredCandidates" uib-popover="{{vm.dynamicPopover.content}}" popover-title="{{vm.dynamicPopover.title}}" >
+
+                            {{candidate}}
+
+
+                        </option>
+                    </select>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-xs-12"></div>
+            <div class="col-xs-12"></div>
+
+        </form>
+
+    </div>
+    <br>
+
+    <div ui-view="result"></div>
+
+    <div class="col-xs-12">
+        <hr>
+        <button type="button" class="btn btn-default btn-lg btn-block" ui-sref="dashboard.viewAssessmentResult"><i class="glyphicon glyphicon-plus"></i> View Results</button>
+    </div>
+
+
+    <!--  </div> -->
+</div>
+
+
+<!-- Modal End -->
+
+
+
+
