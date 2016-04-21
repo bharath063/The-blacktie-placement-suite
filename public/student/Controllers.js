@@ -1,6 +1,32 @@
 /**
  * Created by bharath on 23/03/16.
  */
+
+
+app.controller('AuthCtrl', [
+    '$scope',
+    '$state',
+    'auth',
+    function($scope, $state, auth) {
+        $scope.user = {};
+
+        $scope.logIn = function() {
+            auth.logIn($scope.user).error(function(error) {
+                $scope.error = error;
+            }).then(function() {
+                if ($scope.user.username=="admin") {
+                    $state.go('users');
+                }else{
+                    $state.go('student');
+                }
+
+            });
+        };
+    }
+]);
+
+
+
 app.controller('DashboardCtrl', function ($scope) {
 
     this.user = {

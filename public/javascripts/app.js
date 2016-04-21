@@ -177,7 +177,7 @@ app.config([
     }
 ]).run(function($state,auth) {
     if (!auth.isLoggedIn()) {
-    console.log('here');
+    console.log('app.config.run called');
         $state.go('users'); //make a transition to users state when app starts
 
     }
@@ -253,12 +253,16 @@ app.controller('AuthCtrl', [
             auth.logIn($scope.user).error(function(error) {
                 $scope.error = error;
             }).then(function() {
+                console.log("Current user : "+$scope.user.username);
                 if ($scope.user.username=="admin") {
+
+                    console.log("Admin detected");
+
                     $state.go('users');    
                 }else{
                     $state.go('student');    
                 }
-                
+
             });
         };
     }

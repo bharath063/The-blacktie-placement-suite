@@ -1,0 +1,45 @@
+<div class="form-group">
+  <label for="username" class="col-sm-2 control-label">Username</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="user.username" class="form-control" id="username" placeholder="Username" required/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="email" class="col-sm-2 control-label">Email</label>
+  <div class="col-sm-10">
+    <input type="email" ng-model="user.local.email" class="form-control" id="email" placeholder="User's Email"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="phone" class="col-sm-2 control-label">Phone number</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="user.phone" class="form-control" id="phone" placeholder="e.g : 9842212345" required/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="fname" class="col-sm-2 control-label">First name</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="user.fname" class="form-control" id="fname" placeholder="First Name"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="lname" class="col-sm-2 control-label">Last name</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="user.lname" class="form-control" id="lname" placeholder="Last Name"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="lname" class="col-sm-2 control-label">Type </label>
+  <div class="col-sm-10">
+    <select class="form-control" ng-model="user.role" ng-init=" user.role = 'student'" >
+      <option value="student">Student</option>
+      <option value="hr">H.R.</option>
+      <option value="admin">Administrator</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <input type="submit" class="btn btn-default" value="Save"/>
+  </div>
+</div>

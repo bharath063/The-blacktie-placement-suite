@@ -1,0 +1,61 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th> Rank </th>
+            <th> Name </th>
+            <th> Department </th>
+            <th> Email </th>
+            <th> Shortlist?</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <!--<tr>-->
+            <!--<td> 1 </td>-->
+            <!--<td> Abinaya P </td>-->
+            <!--<td> CSE </td>-->
+            <!--<td><a href="mailto:abinayapaul@gmail.com "> abinayapaul@gmail.com </td>-->
+            <!--<td><input type="checkbox"></input></td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td> 2 </td>-->
+            <!--<td> Bharath B </td>-->
+            <!--<td> CSE </td>-->
+            <!--<td><a href="mailto:bharath18aug@gmail.com "> bharath18aug@gmail.com </td>-->
+            <!--<td><input type="checkbox"></input></td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td> 3 </td>-->
+            <!--<td> Manoj kumar M</td>-->
+            <!--<td> CSE </td>-->
+            <!--<td><a href="mailto:manojkumarbe03@gmail.com "> manojkumarbe03@gmail.com </td>-->
+            <!--<td><input type="checkbox"></input></td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td> 4 </td>-->
+            <!--<td> Monisa R </td>-->
+            <!--<td> CSE </td>-->
+            <!--<td><a href="mailto:monisaraj08@gmail.com "> monisaraj08@gmail.com </td>-->
+            <!--<td><input type="checkbox"></input></td>-->
+        <!--</tr>-->
+
+        <tr ng-repeat="candidate in vm.shortlistedCandidates | orderBy:'-marks'">
+            <td> {{ $index+1 }} </td>
+            <td> {{ candidate.fname}} {{candidate.lname}} </td>
+            <td> {{ candidate.department }} </td>
+            <td> <a href="mailto:{{candidate.local.email}} "> {{candidate.local.email}}  </a> </td>
+            <td> <input type="checkbox" ng-model="phones[$index]" ng-true-value="{{candidate.phone}}" ng-false-value="{{undefined}}" /></td>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <button class="button btn-block btn-lg btn-default" ng-click="vm.sendMessage()"> Invite for next phase </button>
+</div>

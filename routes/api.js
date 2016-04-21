@@ -56,6 +56,12 @@ router.delete('/',function(req,res) {
   // we have deleted the user
   console.log('User deleted!');
 });
+
+    /* End of Admin api  */
+
+    /* Start of student api */
+
+
   
  });
 

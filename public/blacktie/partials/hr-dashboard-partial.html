@@ -1,0 +1,54 @@
+<div class="row ng-scope" style="padding-bottom: 20px;">
+    <div class="col-sm-10">
+        <h1>Welcome, {{Dashboard.user.username }} </h1>
+
+
+
+
+    </div>
+    <div class="col-sm-offset-1 dp-container pull-right">
+
+
+
+        <a href="edit" ui-sref='hr.editProfile'><img ng-src="/uploads/{{Dashboard.user.profilePic}}" title="Set a profile Picture"  width="80px" class="img-circle img-responsive">
+                        <span class="cpic text-center">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            Edit
+                        </span>
+        </a>
+    </div>
+</div>
+<div class="row ng-scope">
+
+    <div class="col-sm-3" ><!--left col-->
+
+
+
+        <ul class="list-group">
+            <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <span class="text-muted">Profile</span></li>
+            <li class="list-group-item text-right" ng-show="Dashboard.user.fname"><span class="pull-left"><strong>First Name</strong></span> {{Dashboard.user.fname}}</li>
+            <li class="list-group-item text-right" ng-show="Dashboard.user.lname"><span class="pull-left"><strong>Last Name</strong></span> {{Dashboard.user.lname}}</li>
+            <li class="list-group-item text-right" ng-show="Dashboard.user.company"><span class="pull-left"><strong>Organization</strong></span> {{Dashboard.user.company}}</li>
+
+            <li class="list-group-item text-right">
+                <a class="btn btn-block btn-primary btn-black"  ui-sref='hr.editProfile'>
+                    Edit
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </li>
+
+        </ul>
+
+
+    </div>
+
+
+    <div class="col-sm-9 animate-container">
+
+        <div ncy-breadcrumb></div>
+
+        <div class="animate-views" ui-view="assessments"></div>
+        <div class="animate-views" ui-view></div>
+
+    </div><!--/col-9-->
+</div>  <!--/row-->

@@ -1,7 +1,7 @@
 /**
  * Created by bharath on 22/03/16.
  */
-var app = new angular.module('blacktie', ['ui.router','ngResource','ui.bootstrap','ngAnimate','ncy-angular-breadcrumb']);
+var app = new angular.module('blacktie', ['ui.router','ngResource','ui.bootstrap','ngAnimate','ncy-angular-breadcrumb','angular-loading-bar']);
 
 /* Configuring student states */
 
@@ -80,4 +80,6 @@ app.config(function($stateProvider,$urlRouterProvider,$breadcrumbProvider) {
     });
 
 });
+
+
 

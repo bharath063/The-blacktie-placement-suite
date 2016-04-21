@@ -1,0 +1,77 @@
+<nav class="navbar navbar-default" ng-controller="NavCtrl as navctrl">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="pull-left" ><img src="/favicon.png" height="50px"></a>
+                    <a class="navbar-brand" href="#" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right"  id="bs-example-navbar-collapse-1" >
+                    <ul class="nav navbar-nav" ng-show="navctrl.user" > 
+                        <li >
+                            <a href="#" lass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <!-- {{navctrl.username}} -->                                 <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <li><a href="#">Edit Profile <i class="glyphicon glyphicon-pencil"></i></a></li>
+                            </ul>
+                        </li>
+                        
+                        <li >
+                            <a  role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
+                                <span class="glyphicon glyphicon-bell"></span><span class="badge badge-notify">{{ navctrl.unreadNotifications.length }}</span><span class="visible-xs-inline">Notifications</span>
+                            </a>
+                            <ul class="dropdown-menu notifications" role="menu">
+                                <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-bell"></span> Notifications</h4>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper">
+                                <a class="content" href="#notifications/{{notification.id}}" ng-repeat="notification in navctrl.unreadNotifications">
+                                    <div class="notification-item">
+                                        <h4 class="item-title">{{notification.id}}.){{notification.title}} at {{notification.date}}</h4>
+                                        <p class="item-info">{{notification.body}}</p>
+                                    </div>
+                                </a>
+                                <hr />
+                                
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notification-footer text-center"><a href="#/notifications/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a  role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">
+                            <span class="glyphicon glyphicon-envelope"></span><span class="badge badge-notify">{{ navctrl.unreadMessages.length }}</span><span class="visible-xs-inline">Messages</span></a>
+                            <ul class="dropdown-menu notifications" role="menu">
+                                <div class="notification-heading text-center"><h4 class="menu-title"><span class="glyphicon glyphicon-envelope"></span> Messages</h4>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper">
+                                <a class="content" href="#messages/{{message.id}}" ng-repeat="message in navctrl.unreadMessages">
+                                    <div class="notification-item">
+                                        <h4 class="item-title"><i class="glyphicon glyphicon-chevron-right white-black"></i> {{message.from}} - {{message.subject}} at {{message.date}} </h4>
+                                        <p class="item-info">{{message.body}}</p>
+                                        <div class="divider"></div>
+                                    </div>
+                                </a>
+                                
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notification-footer text-center"><a href="#messages/all" class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                        </ul>
+                    </li>
+                    <li><a href="#" data-toggle="modal" data-target=".logoutModal"><span class="glyphicon glyphicon-log-out"></span>&nbsp; <span class="visible-xs-inline">Logout</span></a>
+                    
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</nav>

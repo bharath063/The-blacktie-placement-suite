@@ -3,6 +3,9 @@ var app = new angular.module('blacktie', ['ui.router','ngResource','ui.bootstrap
 
 /* Configuring student states */
 
+
+
+
 app.config(function($stateProvider,$urlRouterProvider){
 
     $urlRouterProvider.otherwise('/dashboard');

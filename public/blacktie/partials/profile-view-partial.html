@@ -1,0 +1,21 @@
+
+
+    <ul class="list-group">
+        <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <span class="text-muted">Profile</span></li>
+        <li class="list-group-item text-right" ng-show="Dashboard.user.fname"><span class="pull-left"><strong>First Name</strong></span> {{Dashboard.user.fname}}</li>
+        <li class="list-group-item text-right" ng-show="Dashboard.user.lname"><span class="pull-left"><strong>Last Name</strong></span> {{Dashboard.user.lname}}</li>
+        <li class="list-group-item text-right" ng-show="Dashboard.user.department"><span class="pull-left"><strong>Department</strong></span> {{Dashboard.user.department}}</li>
+        <li class="list-group-item text-right" ng-show="Dashboard.user.address"><span class="pull-left" ><strong>Address</strong></span> {{Dashboard.user.address}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>CGPA</strong></span> <span ng-class="{'text-success': Dashboard.user.cgpa >= 7.5 }">{{Dashboard.user.cgpa}}</span></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Backlogs</strong></span> <span ng-class="{'text-success': Dashboard.user.backlogs=='0' , 'text-danger': Dashboard.user.backlogs>0}">{{Dashboard.user.backlogs}}</span></li>
+        <li class="list-group-item text-right">
+            <a class="btn btn-block btn-primary btn-black"  ui-sref='dashboard.EditProfile'>
+                Edit
+                <i class="glyphicon glyphicon-pencil"></i>
+            </a>
+        </li>
+
+    </ul>
+    <!--<div class="well bg-white">-->
+        <!--<a onclick="alert('sorry, not implemented yet!!')" ><img src="/images/connect-linkedin.png" class="img-responsive"> </a>-->
+    <!--</div>-->

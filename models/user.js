@@ -19,15 +19,42 @@ var userSchema = new Schema(
                 default: 'student'
             },
             phone: String,
-            meta: {
-                age: Number,
-                website: String
+            dob: String,
+            profilePic: {
+                type: String,
+                default: ''
             },
+            cgpa:{},
+            backlogs:{},
+            resume:{},
+            address:{},
+            department:{},
+            invitations:[],
+            messages:[],
             created_at: Date,
             updated_at: Date,
+
             local: {
                 email: String,
                 password: String,
+            },
+
+            company: String,
+            assessments: {
+                assessmentId:Schema.Types.ObjectId,
+                createdBy:{},
+                questions:[],
+                minCgpa:{},
+                maxBacklogs:{},
+                jobLocation:{},
+                salary:{},
+                noOfRounds:{},
+                jobRole:{},
+                description:{},
+                dateTime:{},
+                duration:{},
+                companyName:{},
+                candidates:[]
             }
 
         }
@@ -122,7 +149,7 @@ userSchema.methods.validPassword = function(password) {
 };
 userSchema.pre('save', function(next) {
   // get the current date
-  var currentDate = new Date();
+                                                                                              var currentDate = new Date();
   
   // change the updated_at field to current date
   this.updated_at = currentDate;

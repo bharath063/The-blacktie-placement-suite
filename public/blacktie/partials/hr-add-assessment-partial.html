@@ -1,0 +1,145 @@
+<h3>
+
+</h3>
+
+<!--Modal Begin -->
+
+<div>
+    <!--  <div > -->
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Add a new assessment</h4>
+    <hr>
+    <!-- </div> -->
+    <!-- <div > -->
+    <div class="col-xs-12">
+        <!--<form class="ng-pristine ng-valid" method="post" id="registrationForm">-->
+            <form class="" method="post" id="registrationForm">
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="first_name"><h4>Date of Assessment</h4></label>
+                    <input type="text" class="form-control" name="first_name" id="first_name"
+                           placeholder="dd/mm/yyyy hh:mm:ss" title="enter your first name if any." ng-model="vm.user.assessments.dateTime"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="first_name"><h4>Duration</h4></label>
+                    <input type="text" class="form-control" name="first_name" id="first_name"
+                           placeholder="test duration in minutes" title="test duration in minutes" ng-model="vm.user.assessments.duration"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>Company Name</h4></label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Name of the organization"
+                           title="enter your email." ng-model="vm.user.assessments.companyName"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="last_name"><h4>CGPA</h4></label>
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Minimum CGPA"
+                           title="enter your last name if any." ng-model="vm.user.assessments.minCgpa" />
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="phone"><h4>Maximum Backlogs</h4></label>
+                    <input type="text" class="form-control"
+                           placeholder="Maximum backlog count" title="enter your phone number if any."
+                           ng-model="vm.user.assessments.maxBacklogs" required="required"/>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>Job Role</h4></label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="e.g. Web Developer"
+                           title="enter your email." ng-model="vm.user.assessments.jobRole"/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>Salary</h4></label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="in L.P.A"
+                           title="enter your email." ng-model="vm.user.assessments.salary"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="phone"><h4>Job Location</h4></label>
+                    <input type="text" class="form-control" name="phone" id="phone"
+                           placeholder="Possible Job location(e.g. Bangalore)" title="enter your phone number if any."
+                           ng-model="vm.user.assessments.jobLocation" required="required"/>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="email"><h4>No. of rounds</h4></label>
+                    <input type="number" class="form-control" name="email" id="email" placeholder="No. of rounds in the interview process"
+                           title="enter your email." ng-model="vm.user.assessments.noOfRounds"/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-xs-6">
+                    <label for="profilePicture" uib-tooltip="format: Question, Option1 , option2, option3,option4,answer"><h4>Upload Questions ( in CSV )</h4></label>
+                    <input id="profilePicture" name="profilePicture" type="file" class="file-loading" file-model="questionCSV"
+                           />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-xs-12">
+                    <label for="profilePicture"><h4>Job Description</h4></label>
+                    <textarea class="form-control" rows="5" placeholder="Detailed Job Description" ng-model="vm.user.assessments.description"></textarea>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-xs-12"></div>
+            <div class="col-xs-12"></div>
+
+        </form>
+
+    </div>
+    <br>
+
+
+    <div class="col-xs-12">
+        <hr>
+        <button type="button" class="btn btn-default btn-lg btn-block" ng-click="vm.addAssessment()"><i class="glyphicon glyphicon-plus"></i> Add new Assessment</button>
+    </div>
+
+
+    <!--  </div> -->
+</div>
+
+<!-- Modal End

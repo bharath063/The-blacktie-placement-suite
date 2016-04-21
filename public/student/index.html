@@ -7,16 +7,18 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-cosmo.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/loading-bar.min.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css">
     <!-- required JS-->
 
-    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/javascripts/jquery.min.js"></script>-->
     <script type="text/javascript" src="/javascripts/angular.js"></script>
     <script type="text/javascript" src="/javascripts/angular-resource.js"></script>
     <script type="text/javascript" src="/javascripts/angular-ui-router.js"></script>
     <script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
     <script type="text/javascript" src="/javascripts/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="/javascripts/angular-breadcrumb.js"></script>
+    <script type='text/javascript' src='/javascripts/loading-bar.min.js'></script>
 
 
     <!-- required JS end -->
@@ -130,7 +132,15 @@
             </button>
             <a href="#/" class="pull-left"><img src="/favicon.png" height="50px"></a>
             <a class="navbar-brand" href="#/" style="color: #fff;">&nbsp;The Blacktie placement suite</a>
+
+
         </div>
+
+        <div class="collapse navbar-collapse navbar-right"  id="bs-example-navbar-collapse-1" >
+            <ul class="nav navbar-nav" >
+                <li ><a href="#" ><span class="glyphicon glyphicon-log-out"></span>&nbsp; <span class="visible-xs-inline">Logout</span></a>
+                </ul>
+            </div>
 
     </div>
 </nav>
@@ -146,6 +156,7 @@
 </div>
 
 <script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./Services.js"></script>
 <script type="text/javascript" src="./Controllers.js"></script>
 </body>
 </html>

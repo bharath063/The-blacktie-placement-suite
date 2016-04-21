@@ -1,0 +1,66 @@
+<div class="panel panel-default panel-black">
+    <div class="panel-heading">
+        <h3 class="panel-title" ><i class="glyphicon glyphicon-bell"></i> <b>{{vm.notification.title}}</b> <div class="pull-right" ng-show="vm.notification.assessmentDate">  on {{vm.notification.timestamp}}</div></h3>
+    </div>
+    <div class="panel-body">
+
+
+
+        {{vm.notification.body}}
+
+        <h3> About the company </h3>
+        {{vm.notification.aboutCompany}}
+        <!--HP Inc. is an American technology company, created on November 1, 2015 as the successor of Hewlett-Packard, along with Hewlett Packard Enterprise.It develops and provides hardware, such as personal computers and printers.-->
+        <!--HP Inc. is the larger successor of Hewlett-Packard in terms of revenue, and uses the original NYSE ticker symbol of HPQ (whereas Hewlett Packard Enterprise uses a new ticker, HPE).-->
+        <br>
+        </h3>
+        <h3>Job Location:</h3> {{vm.notification.jobLocation}}
+        <!--<h3>Interview location: </h3>{{vm.notification.interviewLocation}}-->
+        <h3>Eligibility:</h3>  CGPA >= {{vm.notification.minCgpa}}
+        <h3>Salary:</h3> {{vm.notification.salary}} LPA
+
+        <h3>Roles and Responsibilities:</h3>
+        {{vm.notification.jobRole}}
+        <!--<ul>-->
+            <!--<li>Resolving technical issues (hardware and software) from incoming internal or external businesses and end user's contacts and proactive notification system</li>-->
+            <!--<li>-->
+                <!--Providing excellent customer service support to customers during every single interaction-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--Assisting end users to avoid or reduce problem occurrences and adding case resolution to Knowledge Management System-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--Proactively assisting internal or external businesses and end users to avoid or reduce problem occurrence and providing direction and guidance to process improvements.-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--Representing and leading an HP team in a face to face customer location visit, industry conference/trade show, vendor meeting, etc.-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        <h3>Skills Required:</h3>
+        <ul>
+            <li>
+                Candidate should have excellent Communication Skills.
+            </li>
+            <li>
+                Candidate should be willing to work in all Shifts (including night shift)
+            </li>
+        </ul>
+
+        <h3>Interview Process:</h3>
+        <ul>
+            <li>
+                Online Aptitude test
+            </li>
+            <li>
+                Shortlisted candidates will go through Face to Face interview
+            </li>
+        </ul>
+
+
+        <br>
+        <br>
+        <br>
+        <button type="button" class="btn btn-default btn-block" onclick="alert('Successfully registered')" >Register for the test on {{vm.notification.assessmentDate}}</button>
+    </div>
+</div>
